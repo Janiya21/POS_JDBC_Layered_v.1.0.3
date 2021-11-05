@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="580.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DailyIncomeViewController">
+   <children>
+      <DatePicker fx:id="dateView" layoutX="23.0" layoutY="30.0" onAction="#picTheDateOnDateAction" prefHeight="31.0" prefWidth="265.0" promptText="enter date here" />
+      <TableView fx:id="tblProfitShow" layoutX="22.0" layoutY="310.0" prefHeight="231.0" prefWidth="894.0">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="105.0" text="Item Code" />
+          <TableColumn fx:id="colDesc" prefWidth="175.0" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="78.0" text="Qty" />
+            <TableColumn fx:id="colUnitProfit" prefWidth="159.0" text="Unit Profit" />
+            <TableColumn fx:id="colDiscount" prefWidth="182.0" text="Discount" />
+            <TableColumn fx:id="colTotalProfit" prefWidth="193.0" text="Total Profit" />
+        </columns>
+      </TableView>
+      <Label layoutX="30.0" layoutY="109.0" prefHeight="25.0" prefWidth="149.0" text="Profit                     : ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblProfit" layoutX="226.0" layoutY="108.0" prefHeight="25.0" prefWidth="94.0" text="00 . 00 " textFill="#ae1212">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Separator layoutX="330.0" layoutY="31.0" orientation="VERTICAL" prefHeight="254.0" prefWidth="0.0" />
+      <Separator layoutX="36.0" layoutY="287.0" prefHeight="7.0" prefWidth="874.0" />
+      <Label layoutX="30.0" layoutY="145.0" prefHeight="25.0" prefWidth="149.0" text="Total Discount          :" />
+      <Label layoutX="30.0" layoutY="196.0" prefHeight="26.0" prefWidth="149.0" text="Absolute Profit     : ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDiscount" layoutX="226.0" layoutY="144.0" prefHeight="21.0" prefWidth="94.0" text="00 . 00">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAbsProfit" layoutX="224.0" layoutY="195.0" prefHeight="27.0" prefWidth="94.0" text="00 . 00">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="23.0" layoutY="181.0" prefHeight="7.0" prefWidth="284.0" />
+      <BarChart fx:id="movableChart" layoutX="333.0" layoutY="9.0" prefHeight="273.0" prefWidth="587.0" title="Movable Items For Day">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis" label="qty" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

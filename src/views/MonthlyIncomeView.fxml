@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="580.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MonthlyIncomeViewController">
+   <children>
+      <TableView fx:id="tblProfitShow" layoutX="28.0" layoutY="311.0" prefHeight="243.0" prefWidth="892.0">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="105.0" text="Item Code" />
+          <TableColumn fx:id="colDesc" prefWidth="175.0" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="78.0" text="Qty" />
+            <TableColumn fx:id="colUnitProfit" prefWidth="159.0" text="Unit Profit" />
+            <TableColumn fx:id="colDiscount" prefWidth="175.0" text="Discount" />
+            <TableColumn fx:id="colTotalProfit" prefWidth="199.0" text="Total Profit" />
+        </columns>
+      </TableView>
+      <Label layoutX="41.0" layoutY="107.0" prefHeight="25.0" prefWidth="149.0" text="Profit                   : ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblProfit" layoutX="225.0" layoutY="107.0" prefHeight="25.0" prefWidth="94.0" text="00 . 00 " textFill="#ae1212">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Separator layoutX="334.0" layoutY="45.0" orientation="VERTICAL" prefHeight="229.0" prefWidth="4.0" />
+      <Separator layoutX="28.0" layoutY="283.0" prefHeight="7.0" prefWidth="904.0" />
+      <Label layoutX="41.0" layoutY="143.0" prefHeight="25.0" prefWidth="149.0" text="Total Discount        :" />
+      <Label layoutX="41.0" layoutY="194.0" prefHeight="26.0" prefWidth="149.0" text="Absolute Profit     : ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDiscount" layoutX="225.0" layoutY="143.0" prefHeight="21.0" prefWidth="94.0" text="00 . 00">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAbsProfit" layoutX="217.0" layoutY="194.0" prefHeight="27.0" prefWidth="94.0" text="00 . 00">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="40.0" layoutY="181.0" prefHeight="7.0" prefWidth="286.0" />
+      <BarChart fx:id="movableChart" layoutX="334.0" layoutY="18.0" prefHeight="265.0" prefWidth="592.0" title="Movable Items For Month">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis fx:id="yAxis" label="qty" side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <JFXComboBox fx:id="cmbMonthView" layoutX="40.0" layoutY="30.0" prefHeight="31.0" prefWidth="189.0" />
+      <Button layoutX="232.0" layoutY="30.0" mnemonicParsing="false" onAction="#picTheMonthOnDateAction" prefHeight="31.0" prefWidth="53.0" text="Set" />
+   </children>
+</AnchorPane>
