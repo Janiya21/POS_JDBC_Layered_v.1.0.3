@@ -1,6 +1,14 @@
 package entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity(name = "customer")
 public class Customer{
+    @Id
     private String custId;
     private String custTitle;
     private String custName;
@@ -8,6 +16,9 @@ public class Customer{
     private String custCity;
     private String custProvince;
     private String custPostalCode;
+
+    @OneToMany(mappedBy = "orders")
+    private List<Orders> orderList = new ArrayList<>();
 
     public Customer(String custId, String custTitle, String custName, String custAddress, String custCity, String custProvince, String custPostalCode) {
         this.custId = custId;
@@ -17,6 +28,21 @@ public class Customer{
         this.custCity = custCity;
         this.custProvince = custProvince;
         this.custPostalCode = custPostalCode;
+    }
+
+    public Customer(String custId, String custTitle, String custName, String custAddress, String custCity, String custProvince, String custPostalCode, List<Orders> orderList) {
+        this.custId = custId;
+        this.custTitle = custTitle;
+        this.custName = custName;
+        this.custAddress = custAddress;
+        this.custCity = custCity;
+        this.custProvince = custProvince;
+        this.custPostalCode = custPostalCode;
+        this.orderList = orderList;
+    }
+
+    public Customer() {
+
     }
 
     public String getCustId() {
@@ -73,5 +99,13 @@ public class Customer{
 
     public void setCustPostalCode(String custPostalCode) {
         this.custPostalCode = custPostalCode;
+    }
+
+    public List<Orders> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Orders> orderList) {
+        this.orderList = orderList;
     }
 }
